@@ -1,381 +1,1646 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>for you 💗</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy birthday, my love 🤎</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(157,116,81,.08), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(116,63,48,.08), transparent 30%),
+        #f5eee2;
+    color: #4d3027;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .16;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(80,50,30,.035) 0px,
+            rgba(80,50,30,.035) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+    z-index: 999;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 40px 20px;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn .8s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.card {
+    width: min(720px, 100%);
+    padding: 55px 45px;
+    background: rgba(255,250,241,.9);
+    border: 1px solid rgba(107,71,53,.18);
+    box-shadow: 0 20px 60px rgba(70,45,30,.12);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.card::before {
+    content: "♡";
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    font-family: "Cormorant Garamond";
+    font-size: 24px;
+    color: #8b5145;
+}
+
+.card::after {
+    content: "♡";
+    position: absolute;
+    bottom: 18px;
+    right: 22px;
+    font-family: "Cormorant Garamond";
+    font-size: 24px;
+    color: #8b5145;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 11px;
+    color: #936557;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(48px, 10vw, 82px);
+    line-height: .95;
+    margin: 10px 0 20px;
+    color: #5a342a;
+}
+
+h2 {
+    font-size: clamp(34px, 7vw, 54px);
+    margin: 10px 0 20px;
+    color: #5a342a;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.script {
+    font-family: "Great Vibes", cursive;
+    font-size: 34px;
+    color: #8b5145;
+}
+
+.small {
+    font-size: 13px;
+    color: #8d7469;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: "DM Sans", sans-serif;
+}
+
+.main-btn {
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: #6f4034;
+    color: #fff8ef;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: .25s ease;
+}
+
+.main-btn:hover {
+    background: #513027;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid #8b6255;
+    color: #6f4034;
+    border-radius: 3px;
+}
+
+input {
+    width: min(330px, 100%);
+    padding: 14px 16px;
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px solid #a98574;
+    background: transparent;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    color: #4d3027;
+}
+
+.error {
+    min-height: 22px;
+    color: #9a4438;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* CAKE */
+
+.cake-area {
+    margin: 35px auto;
+    width: 210px;
+    height: 180px;
+    position: relative;
+}
+
+.cake {
+    position: absolute;
+    width: 180px;
+    height: 85px;
+    background: #9a604a;
+    border-radius: 8px 8px 14px 14px;
+    bottom: 15px;
+    left: 15px;
+    box-shadow: inset 0 -12px rgba(75,42,32,.13);
+}
+
+.cake::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 28px;
+    top: 0;
+    left: 0;
+    background: #ead6bd;
+    border-radius: 8px;
+}
+
+.cake::after {
+    content: "♡  ♡  ♡";
+    position: absolute;
+    bottom: 18px;
+    width: 100%;
+    text-align: center;
+    color: #f4e8d5;
+    font-size: 14px;
+}
+
+.candle {
+    position: absolute;
+    width: 14px;
+    height: 54px;
+    background: #ead7bd;
+    left: 83px;
+    top: 35px;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.flame {
+    position: absolute;
+    width: 18px;
+    height: 26px;
+    background: #b96b38;
+    border-radius: 50% 50% 50% 50%;
+    left: 81px;
+    top: 8px;
+    transform: rotate(45deg);
+    animation: flicker .7s infinite alternate;
+    z-index: 3;
+}
+
+.flame.off {
+    display: none;
+}
+
+.smoke {
+    display: none;
+    position: absolute;
+    left: 83px;
+    top: 0;
+    font-size: 26px;
+    animation: smoke 2s ease forwards;
+}
+
+.smoke.show {
+    display: block;
+}
+
+@keyframes flicker {
+    from {
+        transform: rotate(42deg) scale(.95);
     }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Trebuchet MS", sans-serif;
-      background: linear-gradient(135deg, #ffd6e7, #fff0f6, #e7d9ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #5b3650;
+    to {
+        transform: rotate(48deg) scale(1.08);
+    }
+}
+
+@keyframes smoke {
+    from {
+        opacity: .8;
+        transform: translateY(10px);
     }
 
-    .card {
-      width: 90%;
-      max-width: 520px;
-      max-height: 90vh;
-      overflow-y: auto;
-      background: rgba(255, 255, 255, 0.94);
-      border-radius: 30px;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(120, 70, 100, 0.2);
-      position: relative;
-      z-index: 2;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .big-heart {
-      font-size: 70px;
-      animation: beat 1s infinite;
-    }
-
-    @keyframes beat {
-      50% {
-        transform: scale(1.18);
-      }
-    }
-
-    h1 {
-      color: #e85d91;
-      font-size: 38px;
-      margin: 12px 0;
-    }
-
-    h2 {
-      color: #e85d91;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    input {
-      width: 80%;
-      padding: 14px;
-      border: 2px solid #f3a1bf;
-      border-radius: 25px;
-      outline: none;
-      text-align: center;
-      font-size: 16px;
-      margin: 15px 0 5px;
-    }
-
-    button {
-      border: none;
-      background: #f27aaa;
-      color: white;
-      padding: 14px 25px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-      transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(230, 90, 140, 0.3);
-    }
-
-    button:hover {
-      transform: scale(1.08);
-      background: #e85d91;
-    }
-
-    #wrong {
-      color: #e85d91;
-      min-height: 25px;
-    }
-
-    #message {
-      margin-top: 25px;
-      animation: appear 0.7s ease;
-    }
-
-    @keyframes appear {
-      from {
+    to {
         opacity: 0;
-        transform: translateY(20px);
-      }
+        transform: translateY(-55px) translateX(15px);
+    }
+}
 
-      to {
+/* LETTER */
+
+.letter {
+    text-align: left;
+    background: #fbf5e9;
+    border: 1px solid rgba(101,66,49,.16);
+    padding: 35px;
+    margin-top: 25px;
+    line-height: 1.9;
+    box-shadow: 0 8px 25px rgba(70,45,30,.07);
+}
+
+.letter p {
+    margin: 0 0 18px;
+}
+
+/* SONGS */
+
+.song-list {
+    display: grid;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.song {
+    text-align: left;
+    padding: 22px;
+    background: #f8f0e3;
+    border-left: 3px solid #956052;
+}
+
+.song-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    font-weight: 600;
+    color: #5a342a;
+}
+
+.artist {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #927164;
+    margin-bottom: 12px;
+}
+
+.song-note {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 14px 0 18px;
+}
+
+.spotify-player {
+    width: 100%;
+    height: 152px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* REASONS */
+
+.reason-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    color: #9b6c5c;
+}
+
+.reason {
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(27px, 5vw, 40px);
+    line-height: 1.25;
+    color: #5a342a;
+    padding: 25px;
+}
+
+/* QUESTION */
+
+.question-area {
+    position: relative;
+    min-height: 250px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.answer-btn {
+    padding: 13px 27px;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: .25s ease;
+}
+
+.yes {
+    background: #6f4034;
+    color: white;
+    z-index: 5;
+}
+
+.no {
+    background: #e1d2c0;
+    color: #624438;
+}
+
+.answer-result {
+    margin-top: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    min-height: 70px;
+}
+
+.question-area.takeover .yes {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    font-size: 35px;
+    z-index: 1000;
+}
+
+.question-area.takeover .no {
+    display: none;
+}
+
+/* FINAL */
+
+.final-heart {
+    font-size: 35px;
+    animation: heartbeat 1.5s infinite;
+    margin: 20px;
+}
+
+.final-message {
+    text-align: left;
+    line-height: 1.9;
+}
+
+.center {
+    text-align: center;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
         opacity: 1;
         transform: translateY(0);
-      }
     }
+}
 
-    .cake {
-      font-size: 80px;
-      margin: 15px 0;
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #8b5145;
+    opacity: .45;
+    animation: floatHeart 7s linear forwards;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes floatHeart {
+    to {
+        transform: translateY(-110vh) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 45px 24px;
     }
 
     .letter {
-      background: #fff7fb;
-      border: 2px dashed #f3a1bf;
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 20px;
-      text-align: left;
+        padding: 23px;
     }
 
-    .letter-title {
-      text-align: center;
-      color: #e85d91;
+    .spotify-player {
+        height: 152px;
     }
-
-    .floating-heart {
-      position: fixed;
-      bottom: -50px;
-      font-size: 25px;
-      animation: float 6s linear infinite;
-      opacity: 0.7;
-      z-index: 1;
-    }
-
-    @keyframes float {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-
-      20% {
-        opacity: 1;
-      }
-
-      to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ========================= -->
-  <!-- password page -->
-  <!-- ========================= -->
 
-  <div class="card" id="passwordPage">
+<!-- =========================
+     PASSWORD
+========================= -->
 
-    <div class="big-heart">🔐</div>
+<section class="screen active" id="passwordScreen">
 
-    <h1>a little secret...</h1>
+    <div class="card">
 
-    <p>
-      sebelum masuk, kamu harus tahu passwordnya dulu 👀
-    </p>
+        <div class="eyebrow">
+            a little secret
+        </div>
 
-    <p>
-      💭 clue: panggilan top-tierku huehehehehe
-    </p>
+        <div class="script">
+            for someone special
+        </div>
 
-    <input
-      type="password"
-      id="password"
-      placeholder="masukkan password..."
-    >
-
-    <br>
-
-    <button onclick="checkPassword()">
-      💗 enter
-    </button>
-
-    <p id="wrong"></p>
-
-  </div>
-
-
-  <!-- ========================= -->
-  <!-- birthday card -->
-  <!-- ========================= -->
-
-  <div class="card hidden" id="birthdayPage">
-
-    <div class="big-heart">💗</div>
-
-    <h1>happy birthday!</h1>
-
-    <p>
-      for someone very special to me... 💗
-    </p>
-
-    <div class="cake">🎂</div>
-
-    <button onclick="showMessage()">
-      🎁 open your surprise
-    </button>
-
-
-    <div id="message" class="hidden">
-
-      <h2>happy birthday, sayang! 💕</h2>
-
-      <p>
-        semoga di umur yang baru ini kamu selalu diberikan
-        kebahagiaan, kesehatan, dan banyak hal baik.
-      </p>
-
-      <button onclick="showLetter()">
-        💌 ada surat buat kamu
-      </button>
-
-
-      <!-- ========================= -->
-      <!-- surat cinta -->
-      <!-- ========================= -->
-      
-      <!--
-        ✨ kamu bisa edit surat di bagian ini nanti ✨
-      -->
-
-      <div id="letter" class="letter hidden">
-
-        <h2 class="letter-title">
-          💌 for you
-        </h2>
+        <h1>♡</h1>
 
         <p>
-          sayang, selamat ulang tahun yaa! 🥹💗
+            there's something waiting for you...
         </p>
 
-        <p>
-          aku bersyukur banget bisa kenal sama kamu.
-          terima kasih karena sudah menjadi seseorang
-          yang sangat berarti buat aku.
-        </p>
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="enter the password"
+        >
 
-        <p>
-          semoga semua hal baik datang ke kamu,
-          dan semoga kita bisa terus membuat
-          banyak kenangan bersama. 💗
-        </p>
+        <div class="small">
+            clue: panggilan top-tierku huehehehehe
+        </div>
 
-        <p>
-          i love youuu! 💕
-        </p>
+        <button
+            class="main-btn"
+            onclick="checkPassword()"
+        >
+            unlock ♡
+        </button>
 
-      </div>
-
-
-      <button onclick="blowCandle()">
-        🕯️ tiup lilinnya!
-      </button>
-
-      <div id="candleResult"></div>
+        <div
+            class="error"
+            id="passwordError"
+        ></div>
 
     </div>
 
-  </div>
+</section>
 
 
-  <script>
+<!-- =========================
+     BIRTHDAY
+========================= -->
 
-    // =========================
-    // password
-    // =========================
+<section class="screen" id="birthdayScreen">
 
-    function checkPassword() {
+    <div class="card">
 
-      const password =
-        document.getElementById("password").value;
+        <div class="eyebrow">
+            for you
+        </div>
 
-      if (password === "sayangku") {
+        <h1>
+            happy<br>
+            birthday!
+        </h1>
 
-        document.getElementById("passwordPage")
-          .classList.add("hidden");
+        <p>
+            for someone very special to me...
+        </p>
 
-        document.getElementById("birthdayPage")
-          .classList.remove("hidden");
+        <div class="cake-area">
 
-      } else {
+            <div
+                class="flame"
+                id="flame"
+            ></div>
 
-        document.getElementById("wrong").innerHTML =
-          "❌ salaaaah 😭 masa panggilan top-tier aja lupa??";
+            <div class="candle"></div>
 
-      }
+            <div
+                class="smoke"
+                id="smoke"
+            >
+                ☁
+            </div>
+
+            <div class="cake"></div>
+
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="showScreen('letterIntroScreen')"
+        >
+            open your surprise ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER INTRO
+========================= -->
+
+<section
+    class="screen"
+    id="letterIntroScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            something i wrote for you
+        </div>
+
+        <h2>
+            a little letter
+        </h2>
+
+        <p>
+            there are some things i've been wanting to say,
+            so... here they are.
+        </p>
+
+        <button
+            class="main-btn"
+            onclick="showScreen('letterScreen')"
+        >
+            read my letter ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section
+    class="screen"
+    id="letterScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            a little letter
+        </div>
+
+        <div class="letter">
+
+            <p>
+                Happy birthday nonokuu sayanggg! Hufft.. i don't even know where to start cuz there are so many things i feel for you that words will never be enough.
+            </p>
+
+            <p>
+                Okay so first, hepii bedeii!!! May this year bring u lots of joy and love.. I always wish all the best for you, for your family, your studies, your future, your everything.
+            </p>
+
+            <p>
+                Thank you for being my person, for choosing me, for still loving me even on the days when i'm difficult.
+            </p>
+
+            <p>
+                Sometimes i wonder, what did i do to deserve a love like this haha.
+            </p>
+
+            <p>
+                Anywayy, this is your special day right? I hope you're having fun todayy!! Jujur bingung banget mau ngomong apa, but i'll say it anyway. Hope i don't look too silly. So.. i just love u so much, i don't even know how to utarakan it with words.
+            </p>
+
+            <p>
+                And sorry if sometimes i'm a bit selfish.. i just don't want to lose someone who is as precious as you hehe. It's only been a month, but somehow u managed to make me fall in love with you as deeply as possible, how?? 😭
+            </p>
+
+            <p>
+                I love our late night chats, calls, ur silly "asbun", and all our random conversations and questions. Nonoo, i just wanna remind u that when everything gets difficult n harsh, u can always come to mee okayy?? I probably won't be able to help that much, but i'll always comfort u and we'll try to figure it out together.
+            </p>
+
+            <p>
+                So don't pendem ur problemss okayy?? You don't have to go through everything alone.
+            </p>
+
+            <p>
+                Thank you once again, my love, and happy birthdayy!! 🤎
+            </p>
+
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="showScreen('candleScreen')"
+        >
+            continue ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CANDLE
+========================= -->
+
+<section
+    class="screen"
+    id="candleScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            make a wish
+        </div>
+
+        <h2>
+            make a wish
+        </h2>
+
+        <p>
+            close your eyes, make a wish...
+        </p>
+
+        <div class="cake-area">
+
+            <div
+                class="flame"
+                id="flame2"
+            ></div>
+
+            <div class="candle"></div>
+
+            <div
+                class="smoke"
+                id="smoke2"
+            >
+                ☁
+            </div>
+
+            <div class="cake"></div>
+
+        </div>
+
+        <button
+            class="main-btn"
+            id="blowBtn"
+            onclick="blowCandle()"
+        >
+            blow the candle ♡
+        </button>
+
+        <div id="candleResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SONGS
+========================= -->
+
+<section
+    class="screen"
+    id="songsScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            songs that remind me of you
+        </div>
+
+        <h2>
+            our little soundtrack
+        </h2>
+
+        <p>
+            five songs that somehow became a little bit of us.
+        </p>
+
+        <div class="song-list">
+
+
+            <!-- SONG 1 -->
+
+            <div class="song">
+
+                <div class="song-title">
+                    Pemuja Rahasia
+                </div>
+
+                <div class="artist">
+                    Sheila On 7
+                </div>
+
+                <div class="song-note">
+                    This one feels the most relatable to me,
+                    especially when I first started liking you hehe.
+                </div>
+
+                <iframe
+                    class="spotify-player"
+                    src="https://open.spotify.com/embed/track/1Ib0UNLoqBEWTmBvXeFSni?utm_source=generator"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+
+            <!-- SONG 2 -->
+
+            <div class="song">
+
+                <div class="song-title">
+                    Alexandra
+                </div>
+
+                <div class="artist">
+                    Reality Club
+                </div>
+
+                <div class="song-note">
+                    Just like the lyrics,
+                    “I'd wait five hundred million hours.”
+                </div>
+
+                <iframe
+                    class="spotify-player"
+                    src="https://open.spotify.com/embed/track/6ZGgaShxOimGDfRz1T1zje?utm_source=generator"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+
+            <!-- SONG 3 -->
+
+            <div class="song">
+
+                <div class="song-title">
+                    Double Take
+                </div>
+
+                <div class="artist">
+                    dhruv
+                </div>
+
+                <div class="song-note">
+                    I don't see nobody but youuuuu 👀
+                </div>
+
+                <iframe
+                    class="spotify-player"
+                    src="https://open.spotify.com/embed/track/47isJpIIO8m7BJEhiFhnaf?utm_source=generator"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+
+            <!-- SONG 4 -->
+
+            <div class="song">
+
+                <div class="song-title">
+                    Bad
+                </div>
+
+                <div class="artist">
+                    wave to earth
+                </div>
+
+                <div class="song-note">
+                    Somehow, all the lyrics are relatable to you, sayang.
+                </div>
+
+                <iframe
+                    class="spotify-player"
+                    src="https://open.spotify.com/embed/track/6H67gFuycHyTOROX2M4bbs?utm_source=generator"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+
+            <!-- SONG 5 -->
+
+            <div class="song">
+
+                <div class="song-title">
+                    Before Spring Ends
+                </div>
+
+                <div class="artist">
+                    Wang OK
+                </div>
+
+                <div class="song-note">
+                    That time, you put this song on your IG Notes
+                    on your first acc, and coincidentally,
+                    I put the same song on my second acc too.
+                </div>
+
+                <iframe
+                    class="spotify-player"
+                    src="https://open.spotify.com/embed/track/0OgOvU69S4QuJYTMlIurn0?utm_source=generator"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+        </div>
+
+        <button
+            class="main-btn"
+            onclick="showScreen('reasonsScreen')"
+        >
+            there's more ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     100 REASONS
+========================= -->
+
+<section
+    class="screen"
+    id="reasonsScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            a hundred little reasons
+        </div>
+
+        <h2>
+            100 reasons<br>
+            why i love you
+        </h2>
+
+        <div
+            class="reason-number"
+            id="reasonNumber"
+        >
+            1 / 100
+        </div>
+
+        <div
+            class="reason"
+            id="reasonText"
+        ></div>
+
+        <button
+            class="main-btn"
+            id="reasonBtn"
+            onclick="nextReason()"
+        >
+            next reason →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUESTION
+========================= -->
+
+<section
+    class="screen"
+    id="questionScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            a very important question
+        </div>
+
+        <h2>
+            do you love me?
+        </h2>
+
+        <div
+            class="question-area"
+            id="questionArea"
+        >
+
+            <button
+                class="answer-btn yes"
+                id="yesBtn"
+                onclick="yesAnswer()"
+            >
+                YES ♡
+            </button>
+
+            <button
+                class="answer-btn no"
+                id="noBtn"
+                onclick="noAnswer()"
+            >
+                NO
+            </button>
+
+        </div>
+
+        <div
+            class="answer-result"
+            id="answerResult"
+        ></div>
+
+        <button
+            class="main-btn"
+            id="afterAnswerBtn"
+            style="display:none;"
+            onclick="showScreen('lastSurpriseScreen')"
+        >
+            continue ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ONE LAST SURPRISE
+========================= -->
+
+<section
+    class="screen"
+    id="lastSurpriseScreen"
+>
+
+    <div class="card">
+
+        <div class="eyebrow">
+            wait...
+        </div>
+
+        <h2>
+            there's one more thing.
+        </h2>
+
+        <p>
+            you thought that was everything?
+            hehe, not quite.
+        </p>
+
+        <button
+            class="main-btn"
+            onclick="showScreen('finalScreen')"
+        >
+            🎁 open your last surprise
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL MESSAGE
+========================= -->
+
+<section
+    class="screen"
+    id="finalScreen"
+>
+
+    <div class="card">
+
+        <div class="final-heart">
+            ♡
+        </div>
+
+        <div class="eyebrow">
+            for you, one last time
+        </div>
+
+        <div class="final-message">
+
+            <p>
+                happy birthday, sayang.
+            </p>
+
+            <p>
+                thank you for being someone who makes my days
+                a little warmer, my smiles a little easier,
+                and my life a little happier just by being in it.
+            </p>
+
+            <p>
+                i hope you know how loved you are—not just today,
+                but on all the ordinary days too.
+            </p>
+
+            <p>
+                i don't know what the future will look like,
+                but i hope i get to be there for a lot of it.
+                i hope we get to make more memories, more stupid jokes,
+                more little moments, and more stories that we'll look
+                back on someday.
+            </p>
+
+            <p>
+                and if you ever forget how much you mean to me,
+                you can always come back here.
+            </p>
+
+            <p>
+                there will always be 100 reasons waiting for you. ♡
+            </p>
+
+            <div class="center">
+
+                <p>
+                    <strong>
+                        happy birthday, my favorite person.
+                    </strong>
+                </p>
+
+                <p class="script">
+                    i love you more. always. 🤎
+                </p>
+
+                <p class="small">
+                    made with love, just for you ♡
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   SCREEN NAVIGATION
+========================= */
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    if (id === "reasonsScreen") {
+        currentReason = 0;
+        updateReason();
     }
+}
 
 
-    // =========================
-    // open surprise
-    // =========================
+/* =========================
+   PASSWORD
+========================= */
 
-    function showMessage() {
+function checkPassword() {
 
-      document.getElementById("message")
-        .classList.remove("hidden");
+    const password =
+        document.getElementById("passwordInput").value;
 
-    }
+    const error =
+        document.getElementById("passwordError");
 
+    if (password === "sayangku") {
 
-    // =========================
-    // open letter
-    // =========================
+        error.textContent = "";
 
-    function showLetter() {
+        showScreen("birthdayScreen");
 
-      document.getElementById("letter")
-        .classList.remove("hidden");
+    } else {
 
-    }
-
-
-    // =========================
-    // blow candle
-    // =========================
-
-    function blowCandle() {
-
-      document.getElementById("candleResult").innerHTML =
-        "<h2>✨ yay! ✨</h2>" +
-        "<p>wish kamu terkabul yaaa! 💗</p>";
+        error.textContent =
+            "hmm... kayaknya bukan itu 👀 coba lagi.";
 
     }
+}
 
 
-    // =========================
-    // floating hearts
-    // =========================
+document
+    .getElementById("passwordInput")
+    .addEventListener("keydown", function(event) {
 
-    function createHeart() {
+        if (event.key === "Enter") {
+            checkPassword();
+        }
 
-      const heart = document.createElement("div");
+    });
 
-      heart.className = "floating-heart";
-      heart.innerHTML = "💗";
 
-      heart.style.left =
-        Math.random() * 100 + "vw";
+/* =========================
+   CANDLE
+========================= */
 
-      heart.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
+function blowCandle() {
 
-      document.body.appendChild(heart);
+    const flame =
+        document.getElementById("flame2");
 
-      setTimeout(() => {
-        heart.remove();
-      }, 8000);
+    const smoke =
+        document.getElementById("smoke2");
+
+    const button =
+        document.getElementById("blowBtn");
+
+    const result =
+        document.getElementById("candleResult");
+
+    flame.classList.add("off");
+
+    smoke.classList.remove("show");
+
+    void smoke.offsetWidth;
+
+    smoke.classList.add("show");
+
+    button.disabled = true;
+
+    button.textContent =
+        "wish made ♡";
+
+    result.innerHTML = `
+        <p style="
+            font-family:'Cormorant Garamond',serif;
+            font-size:28px;
+            margin-top:25px;
+        ">
+            ✨ yay! ✨
+        </p>
+
+        <p>
+            wish kamu terkabul yaaa! 🤎
+        </p>
+
+        <button
+            class="main-btn"
+            onclick="showScreen('songsScreen')"
+        >
+            continue ♡
+        </button>
+    `;
+
+    createHearts();
+}
+
+
+/* =========================
+   100 REASONS
+========================= */
+
+const reasons = [
+
+"because you're you. and somehow, that's already enough.",
+
+"because you make me smile without even trying.",
+
+"because i love talking to you, even when we're literally talking about nothing.",
+
+"because our random conversations are somehow my favorite.",
+
+"because i love our late night chats.",
+
+"because i love our calls.",
+
+"because of ur silly \"asbun\" 😭",
+
+"because you make ordinary days feel a little more special.",
+
+"because talking to you never feels like a chore.",
+
+"because i can be myself around you.",
+
+"because you make me feel comfortable.",
+
+"because you make me feel heard.",
+
+"because you actually listen to me yap about random things.",
+
+"because you always make time for me, even when you only have a little time to spare.",
+
+"because you never make me feel like i'm a burden when i ask for your time.",
+
+"because sometimes you understand me without me having to explain everything.",
+
+"because you somehow know how to make me feel better.",
+
+"because you make me laugh when i don't even feel like laughing.",
+
+"because your presence alone can make my day better.",
+
+"because i could probably listen to you talk about something you're interested in for hours.",
+
+"because i love the way you care.",
+
+"because you're patient with me.",
+
+"because you still love me even when i'm difficult.",
+
+"because you accept my silly side.",
+
+"because you don't make me feel like i have to be perfect.",
+
+"because you make me feel loved as i am.",
+
+"because you make me feel safe being vulnerable with you.",
+
+"because i can tell you things i don't usually tell people.",
+
+"because i trust you.",
+
+"because i feel like i can come to you when things get hard.",
+
+"because you're one of the first people i want to tell things to.",
+
+"because you still choose to call or see me whenever you get the chance, no matter how little time you have.",
+
+"because somehow you became part of my everyday thoughts.",
+
+"because i know being with me isn't always easy, but you still make the effort anyway.",
+
+"because i catch myself thinking about you at the most random times 😭",
+
+"because sometimes a random song reminds me of you.",
+
+"because certain things just don't feel the same anymore because now they remind me of you.",
+
+"because you make the little moments we have together feel just as special as the big ones.",
+
+"because somehow, even a short call with you can make my whole day better.",
+
+"because i miss you even when we've literally just talked.",
+
+"because you make me excited about the little things.",
+
+"because i love hearing about your day.",
+
+"because i want to know what you're thinking.",
+
+"because i want to know about the things you love.",
+
+"because i want to know all the little things about you.",
+
+"because i love discovering new sides of you.",
+
+"because there's still so much i want to learn about you.",
+
+"because one month somehow feels like both a lot and not enough.",
+
+"because it's crazy how quickly you became this important to me.",
+
+"because somehow, in such a short time, you made me fall this hard for you.",
+
+"because i love your voice.",
+
+"because i love hearing you laugh.",
+
+"because i love the way you talk.",
+
+"because i love your little habits.",
+
+"because i love your silly side.",
+
+"because i love your serious side too.",
+
+"because i love seeing you get excited about something.",
+
+"because i love when you tell me random things.",
+
+"because i love when you send me things that remind you of me.",
+
+"because even the smallest things you do can make me stupidly happy.",
+
+"because you make me feel lucky.",
+
+"because knowing that you have strict rules about relationships but still try your best to make time for me makes me feel so loved.",
+
+"because sometimes i genuinely wonder how i got someone like you.",
+
+"because you make me think \"what did i do to deserve this?\" haha.",
+
+"because being loved by you feels so special.",
+
+"because i don't take your love for granted.",
+
+"because i appreciate every little effort you make.",
+
+"because i notice more than you probably think i do.",
+
+"because the little things matter to me when they're from you.",
+
+"because you make me want to be better.",
+
+"because i want to be there when you're happy.",
+
+"because i want to be there when you're sad.",
+
+"because i want to celebrate your wins with you.",
+
+"because i want to comfort you when things don't go well.",
+
+"because i want you to know you don't have to deal with everything alone.",
+
+"because i want to be someone you can come to when things get hard.",
+
+"because i want to hear about your good days.",
+
+"because i want to hear about your bad days too.",
+
+"because i want to keep making memories with you.",
+
+"because i want there to be many more \"remember when...\" stories about us.",
+
+"because you chose me.",
+
+"because you continue to choose me.",
+
+"because you stayed.",
+
+"because you love me in ways i sometimes don't know how to explain.",
+
+"because you make me feel like i'm worth loving.",
+
+"because you make me want to love you better.",
+
+"because i don't want to lose you.",
+
+"because you're precious to me in ways words can't properly explain.",
+
+"because i want to protect what we have.",
+
+"because i want to see where this takes us.",
+
+"because you're my person.",
+
+"because you're someone i can be completely stupid with 😭",
+
+"because i can tell you the most random things and somehow it still feels important.",
+
+"because you make me feel like even the boring days can be fun.",
+
+"because you make my world feel a little warmer.",
+
+"because somehow, you became someone i can't imagine not having in my life anymore.",
+
+"because i love the person you are.",
+
+"because i love the person you are becoming.",
+
+"because after writing 99 reasons, i still feel like i could write another hundred.",
+
+"because after all these reasons, the simplest answer is still the same: i just love you. so, so much. ♡"
+
+];
+
+
+let currentReason = 0;
+
+
+function updateReason() {
+
+    document
+        .getElementById("reasonNumber")
+        .textContent =
+        `${currentReason + 1} / 100`;
+
+    document
+        .getElementById("reasonText")
+        .textContent =
+        reasons[currentReason];
+
+    const button =
+        document.getElementById("reasonBtn");
+
+    if (currentReason === 99) {
+
+        button.textContent =
+            "one last question →";
+
+    } else {
+
+        button.textContent =
+            "next reason →";
 
     }
+}
 
-    setInterval(createHeart, 700);
 
-  </script>
+function nextReason() {
+
+    if (currentReason < 99) {
+
+        currentReason++;
+
+        updateReason();
+
+    } else {
+
+        showScreen("questionScreen");
+
+    }
+}
+
+
+/* =========================
+   LOVE QUESTION
+========================= */
+
+let noClicks = 0;
+
+
+function yesAnswer() {
+
+    const result =
+        document.getElementById("answerResult");
+
+    result.innerHTML = `
+        hehehe, good answer.<br>
+        <span style="font-size:24px;">
+            but i love you more. 🤎
+        </span>
+    `;
+
+    document
+        .getElementById("noBtn")
+        .style.display = "none";
+
+    document
+        .getElementById("yesBtn")
+        .style.transform = "scale(1)";
+
+    document
+        .getElementById("afterAnswerBtn")
+        .style.display = "inline-block";
+
+    createHearts();
+}
+
+
+function noAnswer() {
+
+    noClicks++;
+
+    const yes =
+        document.getElementById("yesBtn");
+
+    const no =
+        document.getElementById("noBtn");
+
+    const area =
+        document.getElementById("questionArea");
+
+    const scale =
+        1 + (noClicks * .55);
+
+    yes.style.transform =
+        `scale(${scale})`;
+
+    if (noClicks < 5) {
+
+        const x =
+            Math.random() * 140 - 70;
+
+        const y =
+            Math.random() * 100 - 50;
+
+        no.style.transform =
+            `translate(${x}px, ${y}px) scale(${Math.max(.3, 1 - noClicks * .13)})`;
+
+    } else {
+
+        area.classList.add("takeover");
+
+        yes.textContent =
+            "YES ♡";
+
+    }
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 10; i++) {
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "floating-heart";
+
+            heart.textContent =
+                Math.random() > .5
+                    ? "♡"
+                    : "♥";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (14 + Math.random() * 20) + "px";
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 9000);
+
+        }, i * 180);
+
+    }
+}
+
+</script>
 
 </body>
 </html>
